@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand — derived from the FaborMe logo (#3F0DA2) */
+  --purple:       #3F0DA2;
+  --purple-dark:  #2E0879;
+  --purple-deep:  #1C0550;
+  --violet:       #6B3FD4;
+  --violet-light: #A98BEF;
+  --lilac:        #F3EEFC;
+  --lilac-soft:   #FAF8FE;
+  --accent:       #8B5CF6;
+
+  /* Neutrals */
+  --text:        #1A1530;
+  --muted:       #6B6480;
+  --line:        #E4DEF2;
+
+  /* Legacy aliases (kept so all pages keep working, remapped to purple) */
+  --navy:        #3F0DA2;
+  --navy-dark:   #2E0879;
+  --gold:        #6B3FD4;
+  --gold-light:  #A98BEF;
+  --cream:       #F3EEFC;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-ui:      'Outfit', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', Consolas, monospace;
+
+  --s-1: 4px;   --s-2: 8px;   --s-3: 12px;
+  --s-4: 16px;  --s-6: 24px;  --s-8: 32px;
+  --s-12: 48px; --s-16: 64px; --s-24: 96px;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-ui);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; }
+  code, pre, .mono { font-family: var(--font-mono); }
+  * { border-color: var(--line); }
+  body { background-color: #ffffff; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium text-sm text-white transition-all duration-150;
+    background: var(--purple);
+  }
+  .btn-primary:hover { background: var(--purple-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(63,13,162,0.25); }
+  .btn-primary:active { transform: translateY(0); }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium text-sm transition-all duration-150 border;
+    color: var(--purple); border-color: var(--line); background: white;
+  }
+  .btn-secondary:hover { border-color: var(--purple); background: var(--lilac); }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium text-sm text-white transition-all duration-150;
+    background: var(--violet);
+  }
+  .btn-gold:hover { background: var(--purple-dark); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(107,63,212,0.3); }
+
+  .card { @apply rounded-xl border bg-white p-6; border-color: var(--line); }
+  .card-hover { @apply card transition-all duration-200; }
+  .card-hover:hover { border-color: var(--purple); box-shadow: 0 4px 24px rgba(63,13,162,0.08); transform: translateY(-2px); }
+
+  .score-badge { @apply inline-flex items-center justify-center rounded-full font-mono font-medium text-sm; min-width: 3rem; height: 3rem; }
+  .score-high { background: #e8f5e9; color: #2e7d32; }
+  .score-mid  { background: #fff8e1; color: #f57f17; }
+  .score-low  { background: #fce4ec; color: #c62828; }
+
+  .input {
+    @apply w-full rounded-lg border px-4 py-3 text-sm outline-none transition-all duration-150;
+    border-color: var(--line); font-family: var(--font-ui);
+  }
+  .input:focus { border-color: var(--purple); box-shadow: 0 0 0 3px rgba(63,13,162,0.08); }
+
+  .label { @apply block text-sm font-medium mb-1.5; color: var(--text); }
+  .section-heading { font-family: var(--font-display); @apply text-3xl font-semibold tracking-tight; color: var(--purple); }
+  .prose-uk { @apply max-w-prose; font-family: var(--font-ui); line-height: 1.7; color: var(--text); }
+}
+
+@keyframes score-fill { from { stroke-dashoffset: 283; } to { stroke-dashoffset: var(--target-offset); } }
+.score-ring circle { animation: score-fill 1s ease-out forwards; }
+@keyframes waveform-pulse { 0%,100% { transform: scaleY(0.4); } 50% { transform: scaleY(1); } }
+.waveform-bar { animation: waveform-pulse 1s ease-in-out infinite; }
+@keyframes page-fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+.page-enter { animation: page-fade 0.3s ease-out forwards; }
