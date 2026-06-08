@@ -1,8 +1,11 @@
 import { createClient } from '@/lib/supabase/server'
 import { fmt } from '@/lib/fmt'
 import CancelButton from '@/components/billing/CancelButton'
+import type { Database } from '@/types/database'
 
 export const metadata = { title: 'Billing' }
+
+type Subscription = Database['public']['Tables']['subscriptions']['Row']
 
 const PLANS = [
   { tier: 'starter', label: 'Starter', price: 1500, features: ['10 sessions/month', 'Full AI scoring', 'Progress dashboard'] },
@@ -13,7 +16,8 @@ const PLANS = [
 export default async function BillingPage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  const { data: sub } = await supabase.from('subscriptions').select('*').eq('user_id', user!.id).single()
+  const { data } = await supabase.from('subscriptions').select('*').eq('user_id', user!.id).single()
+  const sub = data as Subscription | null
 
   return (
     <div className="max-w-3xl mx-auto">
