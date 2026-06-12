@@ -12,6 +12,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-GB">
       <head>
+        {/* Start cookieyes banner */}
+        <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/0c8cd8b03591063b8587e74875d889dd/script.js"></script>
+        {/* End cookieyes banner */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
