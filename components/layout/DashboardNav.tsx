@@ -29,7 +29,7 @@ export default function DashboardNav({ user }: { user: User }) {
     <aside className="fixed left-0 top-0 h-screen w-64 flex flex-col border-r bg-white z-40">
       <div className="p-6 border-b">
         <Link href="/dashboard" className="inline-flex items-center" aria-label="FaborMe home">
-          <Image src="/faborme-logo.png" alt="FaborMe" width={140} height={50} priority className="h-8 w-auto" />
+          <Image src="/faborme-logo.png" alt="FaborMe" width={140} height={50} priority className="h-10 w-auto" />
         </Link>
       </div>
 

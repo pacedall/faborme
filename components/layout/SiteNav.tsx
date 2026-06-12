@@ -31,9 +31,9 @@ export default function SiteNav() {
         borderBottom: scrolled ? '1px solid var(--line)' : '1px solid transparent',
       }}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between" style={{ height: '72px' }}>
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between" style={{ height: '84px' }}>
         <Link href="/" className="flex items-center group" aria-label="FaborMe home">
-          <Image src="/faborme-logo.png" alt="FaborMe" width={150} height={54} priority className="h-9 w-auto transition-transform group-hover:scale-[1.02]" />
+          <Image src="/faborme-logo.png" alt="FaborMe" width={174} height={60} priority className="h-16 w-auto transition-transform group-hover:scale-[1.02]" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">

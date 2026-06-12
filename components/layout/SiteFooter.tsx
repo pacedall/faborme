@@ -7,7 +7,7 @@ export default function SiteFooter() {
       <div className="max-w-6xl mx-auto px-6 pt-16 pb-10">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
-            <Image src="/faborme-logo-white.png" alt="FaborMe" width={160} height={58} className="h-10 w-auto mb-5" />
+            <Image src="/faborme-logo-white.png" alt="FaborMe" width={174} height={60} className="h-16 w-auto mb-5" />
             <p className="text-sm leading-relaxed mb-6 max-w-xs" style={{ color: 'rgba(255,255,255,0.55)' }}>
               AI-powered professional communication performance. Sound clearer, more confident, and more authoritative — measurably.
             </p>
